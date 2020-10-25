@@ -6,7 +6,7 @@ class DynamicArray<T> {
   List<T> dynamicArray;
   int currentSize;
   int maxSize = 1;
-  final double expandCoefficient = 1.5;
+  final int expandCoefficient = 2;
 
   void add(T data) {
 
@@ -38,6 +38,13 @@ class DynamicArray<T> {
   }
 
   void _expandArray() {
+    List<T> newDynamicArray = new List<T>(this.maxSize * this.expandCoefficient);
 
+    for (int i = 0; i < this.currentSize; i++) {
+      newDynamicArray[i] = this.dynamicArray[i];
+    }
+    this.dynamicArray = null;
+    this.dynamicArray = newDynamicArray;
+    this.maxSize *= this.expandCoefficient;
   }
 }

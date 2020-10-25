@@ -26,7 +26,11 @@ class DynamicArray<T> {
   }
 
   void set(int index, T data) {
-
+    if (index > this.currentSize || index < 0) {
+      return;
+    } else {
+      this.dynamicArray[index] = data;
+    }
   }
 
   void removeAll() {

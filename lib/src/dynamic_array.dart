@@ -34,7 +34,12 @@ class DynamicArray<T> {
   }
 
   void removeAll() {
+    for (int i = 0; i < this.currentSize; i++) {
+      this.dynamicArray[i] = null;
+    }
 
+    this.dynamicArray = null;
+    _arrayInit();
   }
 
   void arrayToString(String Function(T) objectToStringFunction) {

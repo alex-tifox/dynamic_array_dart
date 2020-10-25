@@ -1,7 +1,8 @@
 class DynamicArray<T> {
   DynamicArray() {
-
+    this._arrayInit();
   }
+
   List<T> dynamicArray;
   int currentSize;
   int maxSize = 1;
@@ -32,7 +33,8 @@ class DynamicArray<T> {
   }
 
   void _arrayInit() {
-
+    this.dynamicArray = new List<T>(maxSize);
+    this.currentSize = 0;
   }
 
   void _expandArray() {

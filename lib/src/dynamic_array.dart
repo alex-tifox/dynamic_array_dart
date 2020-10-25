@@ -9,7 +9,12 @@ class DynamicArray<T> {
   final int expandCoefficient = 2;
 
   void add(T data) {
+    if (this.currentSize == this.maxSize) {
+      _expandArray();
+    }
 
+    this.dynamicArray[currentSize] = data;
+    this.currentSize += 1;
   }
 
   T get(int index) {

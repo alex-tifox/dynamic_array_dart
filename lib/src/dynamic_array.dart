@@ -46,8 +46,9 @@ class DynamicArray<T> {
   }
 
   void _arrayInit() {
-    this.dynamicArray = new List<T>(maxSize);
+    this.maxSize = 1;
     this.currentSize = 0;
+    this.dynamicArray = new List<T>(maxSize);
   }
 
   void _expandArray() {

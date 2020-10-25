@@ -52,7 +52,28 @@ class DynamicArray<T> {
   }
 
   void sort(bool Function(T, T) comparator) {
+    int lastSwap = this.currentSize - 1;
 
+    for (int i = 0; i < this.currentSize; i++) {
+      bool isSorted = true;
+      int currentSwap = -1;
+
+      for (int j = 0; j < lastSwap; j++) {
+        if (comparator(this.dynamicArray[j], this.dynamicArray[j + 1])) {
+          T tmp = this.dynamicArray[j];
+          this.dynamicArray[j] = this.dynamicArray[j + 1];
+          this.dynamicArray[j + 1] = tmp;
+          isSorted = false;
+          currentSwap = j;
+        }
+      }
+
+      if (isSorted) {
+        return;
+      }
+
+      lastSwap = currentSwap;
+    }
   }
 
   void _arrayInit() {

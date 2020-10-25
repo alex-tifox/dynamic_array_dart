@@ -18,7 +18,11 @@ class DynamicArray<T> {
   }
 
   T get(int index) {
-
+    if (index > this.currentSize || index < 0) {
+      return null;
+    } else {
+      return this.dynamicArray[index];
+    }
   }
 
   void set(int index, T data) {

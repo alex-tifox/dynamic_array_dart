@@ -42,8 +42,13 @@ class DynamicArray<T> {
     _arrayInit();
   }
 
-  void arrayToString(String Function(T) objectToStringFunction) {
-
+  void arrayToString(String Function(T) objectToStringFunction, [int amountOfData]) {
+    int amountOfElements = amountOfData ?? this.currentSize;
+    if (amountOfElements <= this.currentSize && amountOfElements > 0) {
+      _printInfoAboutArray(objectToStringFunction, amountOfElements);
+    } else {
+      throw Exception('Illegal argument exception. Amount of data is not valid');
+    }
   }
 
   void sort(bool Function(T, T) comparator) {
@@ -65,5 +70,13 @@ class DynamicArray<T> {
     this.dynamicArray = null;
     this.dynamicArray = newDynamicArray;
     this.maxSize *= this.expandCoefficient;
+  }
+
+  void _printInfoAboutArray(String Function(T) objectToStringFunction, int amountOfArrayElements) {
+    print("Current size is: ${this.currentSize}");
+    print("Max size is: ${this.maxSize}");
+    for (int i = 0; i < amountOfArrayElements; i++) {
+      print(objectToStringFunction(this.dynamicArray[i]));
+    }
   }
 }

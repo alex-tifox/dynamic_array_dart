@@ -40,14 +40,4 @@ void main() {
     dynamicArray.sort((left, right) => left > right);
     expect(dynamicArray.dynamicArray, [1, 2, 4, 6]);
   });
-
-  test('Test of sorting the elements in dynamic array', () {
-    DynamicArray<int> dynamicArray = DynamicArray<int>();
-    dynamicArray.add(1);
-    dynamicArray.add(4);
-    dynamicArray.add(2);
-    dynamicArray.add(6);
-    dynamicArray.sort((left, right) => left > right);
-    expect(dynamicArray.dynamicArray, [1, 2, 4, 6]);
-  });
 }

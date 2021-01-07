@@ -22,4 +22,10 @@ Also it allows you to:
 - Sort it with bubblesort passing comparator function
 - Clear the array by removing all the elements and reset dynamic array to its start state
 
+### Technologies
+
+- Dynamic array algorythm 
+- Dart
+- GitHub actions and unit testing
+
 **Author - Oleksandr Tilnyi**
